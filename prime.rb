@@ -1,11 +1,11 @@
 def prime?(i)
- return self >= 2 if self <= 3
-    return true if self == 5
-    return false unless 30.gcd(self) == 1
-    (7..Integer.sqrt(self)).step(30) do |p|
-      return false if
-        self%(p)    == 0 || self%(p+4)  == 0 || self%(p+6)  == 0 || self%(p+10) == 0 ||
-        self%(p+12) == 0 || self%(p+16) == 0 || self%(p+22) == 0 || self%(p+24) == 0
+  start = 2
+  if i > 1
+    range = (start..i-1).to_a
+    range.none? do |i_run| 
+      i % i_run == 0
     end
-    true
+  else
+    false
   end
+end
